@@ -22,8 +22,8 @@
             <span class="icon-menu"></span><span class="hidden">Menu</span>
           </button>
           <ul id="menu">
-            @foreach ($articles->unique('category_id') as $article) 
-            <li><a href="category.php?id={{ $article->category->id }}" aria-current="page">
+            @foreach ($articles->unique('category_id') as $article)
+            <li><a href=" {{ route('articles.showCategory', $article->category->name) }}" aria-current="page">
               {{ $article->category->name }}
             </a></li>
             @endforeach

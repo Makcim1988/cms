@@ -1,7 +1,7 @@
 <x-layout :articleData="$articleData" :title="$title" :desc="$desc" :articles="$articles">
     <main class="article container" id="content">
         <section class="image">
-        <img src="{{ asset('storage/uploads/' . $articleData->image->file) }}" alt="{{ $articleData->image->alt }}" 
+        <img src="{{ asset('storage/uploads/' . $articleData->image->file) }}" alt="{{ $articleData->image->alt }}"
             alt="{{ $articleData->alt }}">
         </section>
         <section class="text">
@@ -9,7 +9,7 @@
         <div class="date">{{ $articleData->created }}</div>
         <div class="content">{{ $articleData->content }}</div>
         <p class="credit">
-            Posted in <a href="category.php?id={{ $articleData->category->id }}">{{ $articleData->category->name }}</a> by <a href="member.php?id={{ $articleData->member->id }}">
+            Posted in <a href="{{ route('articles.showCategory', $articleData->category->name) }}">{{ $articleData->category->name }}</a> by <a href=" {{ route('articles.showMember', $articleData->member->id) }}">
             {{ $articleData->member->forename . ' ' . $articleData->member->surname }}</a>
         </p>
         </section>
