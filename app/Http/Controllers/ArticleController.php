@@ -54,4 +54,11 @@ class ArticleController extends Controller
 
         return view('search', ['title' => 'Поиск', 'desc' => 'Поиск', 'articles' => $articles, 'term' => $term, 'result' => $result]);
     }
+
+    public function getAdminCategories()
+    {
+        $categories = Category::all();
+
+        return view('admin-categories', compact('categories'));
+    }
 }

@@ -23,4 +23,6 @@ Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('art
 Route::get('/categories/{categoryName}', [ArticleController::class, 'showCategory'])->name('articles.showCategory');
 Route::get('/members/{id}', [ArticleController::class, 'showMember'])->name('articles.showMember');
 Route::get('/search', [ArticleController::class, 'search'])->name('articles.search');
+Route::get('/admin/categories', [ArticleController::class, 'getAdminCategories'])->name('articles.admin-categories');
+Route::get('/admin/articles', [ArticleController::class, 'getAdminArticles'])->name('articles.admin-articles');
 
