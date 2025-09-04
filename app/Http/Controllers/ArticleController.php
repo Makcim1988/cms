@@ -39,4 +39,19 @@ class ArticleController extends Controller
 
         return view('show-member', ['title' => $member->forename . ' ' . $member->surename, 'desc' => $member->forename . ' ' . $member->surename,  'articles' => $articles, 'member' => $member]);
     }
+
+    public function search(Request $request)
+    {
+        $articles = Article::with(['category', 'image', 'member'])->get();
+        $term = $request->query('term');
+        $result = null;
+
+        if($term) {
+            $result = Article::where('title', 'like', "%{$term}%")
+                        ->orWhere('summary', 'like', "%{$term}%")
+                        ->orWhere('content', 'like', "%{$term}%")->get();
+        }
+
+        return view('search', ['title' => 'Поиск', 'desc' => 'Поиск', 'articles' => $articles, 'term' => $term, 'result' => $result]);
+    }
 }

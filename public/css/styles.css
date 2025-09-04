@@ -612,15 +612,16 @@ nav.pagination {
 
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons/icons.eot?29469745');
-  src: url('../font/icons/icons.eot?29469745#iefix') format('embedded-opentype'),
-  url('../font/icons/icons.woff2?29469745') format('woff2'),
-  url('../font/icons/icons.woff?29469745') format('woff'),
-  url('../font/icons/icons.ttf?29469745') format('truetype'),
-  url('../font/icons/icons.svg?29469745#icons') format('svg');
+  src: url('/fonts/icons/icons.eot?29469745');
+  src: url('/fonts/icons/icons.eot?29469745#iefix') format('embedded-opentype'),
+       url('/fonts/icons/icons.woff2?29469745') format('woff2'),
+       url('/fonts/icons/icons.woff?29469745') format('woff'),
+       url('/fonts/icons/icons.ttf?29469745') format('truetype'),
+       url('/fonts/icons/icons.svg?29469745#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "icons";

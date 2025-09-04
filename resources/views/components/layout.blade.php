@@ -27,7 +27,7 @@
               {{ $article->category->name }}
             </a></li>
             @endforeach
-            <li><a href="search.php">
+            <li><a href=" {{ route('articles.search') }} ">
               <span class="icon-search"></span><span class="search-text">Search</span>
             </a></li>
           </ul>
@@ -39,7 +39,7 @@
 
     <footer>
       <div class="container">
-        &copy; Creative Folk <?= date('Y'); ?>
+        &copy; <a href="http://lemaxdeveloper.su">lemaxdeveloper</a> <?= date('Y'); ?>
       </div>
     </footer>
     <script src="js/site.js"></script>
