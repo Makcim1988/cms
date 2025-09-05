@@ -1,6 +1,7 @@
 <x-layout :articles="$articles" :title="$title" :desc="$desc">
     <main class="container grid" id="content">
         @foreach ($articles as $article)
+        @if($article->published == 1)
         <article class="summary">
             <a href=" {{ route('articles.show', $article->title) }}">
             <img src="{{ asset('storage/uploads/' . $article->image->file) }}" alt="{{ $article->image->alt }}">
@@ -13,6 +14,7 @@
             {{ $article->member->forename . " " . $article->member->surname }}</a>
             </p>
         </article>
+        @endif
         @endforeach
     </main>
     <div class="paginate">{{ $articles->links() }}</div>

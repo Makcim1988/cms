@@ -12,6 +12,37 @@
   </head>
   <body>
     <header>
+      <nav class="member-menu">
+        <div class="container">
+            @guest
+              <a href="{{ route('login') }}" class="nav-item nav-link">Log in</a> /
+              <a href="{{ route('register') }}" class="nav-item nav-link">Register</a>
+            @endguest
+
+            @php
+                $admin = \App\Models\Member::where('role', 'admin')->first();
+            @endphp
+
+            <a href="member.php?id="></a> /
+            @auth
+              @if(auth()->user()->role === 'member')
+                <a href="{{ route('articles.member-articles') }}">Articles</a> /
+              @endif
+            @endauth
+            
+            @auth
+              @if(auth()->user()->role === 'admin')
+                <a href="{{ route('articles.admin-categories') }}">Categories</a> /
+                <a href="{{ route('articles.admin-articles') }}">Articles</a> /
+              @endif
+            @endauth
+
+            @auth
+                <a href="{{ route('logout') }}">Logout</a>
+            @endauth
+
+        </div>
+      </nav>
       <div class="container">
         <a class="skip-link" href="#content">Skip to content</a>
         <div class="logo">

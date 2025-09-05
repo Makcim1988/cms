@@ -32,7 +32,7 @@
     
     <footer>
       <div class="container">
-        &copy; Creative Folk <?= date('Y'); ?>
+        &copy; <a href="http://lemaxdeveloper.su">lemaxdeveloper</a> <?= date('Y'); ?>
       </div>
     </footer>
     <script src="js/site.js"></script>

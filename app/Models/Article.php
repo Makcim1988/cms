@@ -14,6 +14,10 @@ class Article extends Model
 
     protected $table = 'article';
 
+	protected $fillable = ['title', 'summary', 'content', 'created', 'image_id', 'member_id', 'category_id', 'published'];
+
+	public $timestamps = false;
+
     public function category()
 	{
         return $this->belongsTo(Category::class, 'category_id');

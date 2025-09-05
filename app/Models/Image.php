@@ -12,6 +12,10 @@ class Image extends Model
 
     protected $table = 'image';
 
+    protected $fillable = ['file', 'alt'];
+
+    public $timestamps = false;
+
     public function article()
 	{
 	    //return $this->belongsTo(Article::class);
