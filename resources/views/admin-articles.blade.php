@@ -6,16 +6,16 @@
     </section>
     <table>
       <tr>
-        <th>Image</th><th>Title</th><th>Summary</th><th>Content</th><th class="created">Created</th><th class="pub">Published</th><th class="edit">Edit</th><th class="del">Delete</th>
+        <th>Image</th><th>Title</th><th>Summary</th><th>Content</th><th class="pub">Published</th><th class="edit">Edit</th><th class="del">Delete</th>
       </tr>
-      @foreach ($articles as $article) 
+      @foreach ($articles as $article)
       <tr>
         <td>
             <img src="{{ asset('storage/uploads/' . $article->image->file) }}" alt="{{ $article->image->alt }}" alt="{{ $article->alt }}">
         </td>
         <td><strong>{{ $article->title }}</strong></td>
-        <td><strong>{{ $article->summary }}</strong></td>
-        <td><strong>{{ $article->content }}</strong></td>
+        <td>{{ $article->summary }}</td>
+        <td>{{ $article->content }}</td>
         <td>{{ $article->published ? 'Yes' : 'No' }}</td>
         <td><a href="{{ route('articles.edit-articles', $article->id) }}" class="btn btn-primary}}">Edit</a></td>
         <td><a href="{{ route('articles.destroy-articles', $article->id) }}" class="btn btn-danger">Delete</a></td>

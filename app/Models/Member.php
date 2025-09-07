@@ -25,8 +25,9 @@ class Member extends /*Model*/ Authenticatable
 
     public $timestamps = false;
 
-    public function article()
-	{
-	    //return $this->belongsTo(Article::class);
-	}
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'member_id');
+    }
+
 }

@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'password'  => 'required',
         ]);
 
-        Member::create([
+        $member = Member::create([
             'forename' => $request->forename,
             'surname'  => $request->surname,
             'email'    => $request->email,

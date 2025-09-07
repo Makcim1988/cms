@@ -9,7 +9,7 @@
 
       <div class="admin-article">
         <section class="image">
-          
+
             <label for="image">Upload image:</label>
             <div class="form-group image-placeholder">
               <input type="file" name="image" class="form-control-file" id="image"><br>
@@ -76,8 +76,8 @@
           <div class="form-group">
             <label for="category">Published: </label>
             <select name="published" id="published">
-                <option value="0">0</option>
-                <option value="1">1</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
             </select>
             @error('published')
                 <div class="alert alert-danger">{{ $message }}</div>
