@@ -14,7 +14,7 @@ class LoginController extends Controller
     {
          $articles = Article::with(['category', 'image', 'member'])->paginate(6);
 
-        return view('login', ['title' => 'CMS Страница авторизации', 'desc' => 'CMS Страница авторизации', 'articles' => $articles]);
+        return view('login', ['title' => 'CMS | Login page', 'desc' => 'CMS | Login page', 'articles' => $articles]);
     }
 
     public function login(Request $request)
@@ -31,7 +31,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Неверный логин или пароль',
+            'email' => 'Incorrect login or password',
         ]);
     }
 

@@ -11,6 +11,7 @@
     <section class="grid">
     @if($result && $result->count())
       @foreach ($result as $article) 
+      @if($article->published == 1)
       <article class="summary">
         <a href="{{ route('articles.show', $article->title) }}">
           <img src="{{ asset('storage/uploads/' . $article->image->file) }}" alt="{{ $article->image->alt }}">
@@ -23,10 +24,11 @@
             {{ $article->member->forename . " " . $article->member->surname }}</a>
             </p>
       </article>
+      @endif
       @endforeach
     @else
         <article class="summary">
-            <p>Ничего не найдено</p>
+            <p>No results found</p>
         </article>
     @endif
     </section>

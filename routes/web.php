@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SymlinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,11 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
+Route::get('/symlink', [SymlinkController::class, 'index'])->name('symlink');
+
 Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
-Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
-Route::get('/categories/{categoryName}', [ArticleController::class, 'showCategory'])->name('articles.showCategory');
+Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/categories/{id}', [ArticleController::class, 'showCategory'])->name('articles.showCategory');
 Route::get('/members/{id}', [ArticleController::class, 'showMember'])->name('articles.showMember');
 Route::get('/search', [ArticleController::class, 'search'])->name('articles.search');
 

@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title }}</title>
+    <title>{{ $title }} @php if(isset($_GET['page'])){ echo " - Page " . $_GET['page'];} @endphp</title>
     <meta name="description" content="{{ $desc }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') . '?v=' . time() }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.ico') }}">
+    <style>
+        @font-face {
+            font-family: 'icons';
+            src: url('{{ asset('fonts/icons/icons.eot') }}');
+            src: url('{{ asset('fonts/icons/icons.eot') }}?#iefix') format('embedded-opentype'),
+            url('{{ asset('fonts/icons/icons.woff2') }}') format('woff2'),
+            url('{{ asset('fonts/icons/icons.woff') }}') format('woff'),
+            url('{{ asset('fonts/icons/icons.ttf') }}') format('truetype'),
+            url('{{ asset('fonts/icons/icons.svg') }}#icons') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
 <header>

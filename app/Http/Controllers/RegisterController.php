@@ -14,7 +14,7 @@ class RegisterController extends Controller
     {
         $articles = Article::with(['category', 'image', 'member'])->paginate(6);
 
-        return view('register', ['title' => 'CMS Страница регистрации', 'desc' => 'CMS Страница регистрации', 'articles' => $articles]);
+        return view('register', ['title' => 'CMS | Registration page', 'desc' => 'CMS | Registration page', 'articles' => $articles]);
     }
 
     public function register(Request $request)

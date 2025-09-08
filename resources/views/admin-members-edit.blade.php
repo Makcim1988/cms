@@ -3,7 +3,7 @@
         <section class="header">
             <h1>Members</h1>
         </section>
-        <table class="categories">
+        <table>
             <tr>
                 <th>Picture</th>
                 <th>Forename</th>

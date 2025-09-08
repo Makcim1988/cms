@@ -55,7 +55,9 @@
             <label for="member_id">Author: </label>
             <select name="member_id" id="member_id">
                 @foreach ($members as $member)
+                @if($member->id === $article->member_id)
                 <option value="{{ $member->id }}">{{ $member->forename . ' ' . $member->surname }}</option>
+                @endif
                 @endforeach
             </select>
             @error('member_id')

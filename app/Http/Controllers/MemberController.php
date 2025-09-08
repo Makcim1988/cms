@@ -13,7 +13,7 @@ class MemberController extends Controller
     {
         $articles = Article::all();
         $member = Member::where('id', auth()->id())->first();
-        return view('member-edit-profile', ['title' => 'CMS Страница пользователя' . $member->forenme . ' ' . $member->surname, 'desc' => 'CMS Страница пользователя' . $member->forenme . ' ' . $member->surname, 'member' => $member, 'articles' => $articles]);
+        return view('member-edit-profile', ['title' => 'CMS | User page' . $member->forename . ' ' . $member->surname, 'desc' => 'CMS | User page' . $member->foreanme . ' ' . $member->surname, 'member' => $member, 'articles' => $articles]);
     }
 
     public function storeMemberAfterEdit(Request $request)
@@ -36,6 +36,7 @@ class MemberController extends Controller
         if ($request->hasFile('image')) {
             $filename = time() . '.' . $request->file('image')->extension();
             $request->file('image')->storeAs('uploads', $filename, 'public');
+            $request->file('image')->move(public_path('storage/uploads'), $filename);
 
             // Удаляем старую картинку, если есть
             if ($member->picture) {
@@ -60,7 +61,7 @@ class MemberController extends Controller
         $members = Member::get();
         $articles = Article::get();
 
-        return view('admin-members-edit', ['title' => 'CMS Страница редактирования пользователей', 'desc' => 'CMS Страница редактирования пользователей', 'members' => $members, 'articles' => $articles]);
+        return view('admin-members-edit', ['title' => 'CMS | User edit', 'desc' => 'CMS | User edit', 'members' => $members, 'articles' => $articles]);
     }
 
     public function getMember($id)
@@ -69,7 +70,7 @@ class MemberController extends Controller
         $member = Member::where('id', $id)->first();
         $articles = Article::get();
 
-        return view('admin-edit-member', ['title' => 'CMS Страница редактирования пользователей', 'desc' => 'CMS Страница редактирования пользователей', 'member' => $member, 'articles' => $articles]);
+        return view('admin-edit-member', ['title' => 'CMS | User page', 'desc' => 'CMS | User page', 'member' => $member, 'articles' => $articles]);
     }
 
     public function storeMember(Request $request, $id)

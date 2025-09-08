@@ -7,9 +7,9 @@
         <section class="text">
         <h1>{{ $articleData->title }}</h1>
         <div class="date">{{ $articleData->created }}</div>
-        <div class="content">{{ $articleData->content }}</div>
+        <div class="content"><pre>{{ $articleData->content }}</pre></div>
         <p class="credit">
-            Posted in <a href="{{ route('articles.showCategory', $articleData->category->name) }}">{{ $articleData->category->name }}</a> by <a href=" {{ route('articles.showMember', $articleData->member->id) }}">
+            Posted in <a href="{{ route('articles.showCategory', $articleData->category->id) }}">{{ $articleData->category->name }}</a> by <a href=" {{ route('articles.showMember', $articleData->member->id) }}">
             {{ $articleData->member->forename . ' ' . $articleData->member->surname }}</a>
         </p>
         </section>
